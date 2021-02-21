@@ -14,12 +14,29 @@ class PostContainer extends React.Component {
 
     componentDidMount() {
         this.setState({isLoading: true})
-        const url = 'https://us-central1-capconcept-72a90.cloudfunctions.net/adminApi/getPosts/start';
+        if(this.props.profile) {
+            const url = `https://us-central1-capconcept-72a90.cloudfunctions.net/adminApi/getUsersPosts/${this.props.uid}`
+            getPosts(url).then(res => res.json()).then(data => {
+                let postComponents = data.map(post => {
+                    return (
+
+                          <Post key={post.id} id={post.id} displayName={post.post.displayName} content={post.post.content} timestamp={post.post.timestamp} uid={post.post.uid} comments={post.post.comments} />
+
+                    )
+                })
+                this.setState({
+                    posts: postComponents,
+                    isLoading: false
+                })
+            })
+
+        } else {
+            const url = 'https://us-central1-capconcept-72a90.cloudfunctions.net/adminApi/getPosts/start';
         getPosts(url).then(res => res.json()).then(data => {
             let postComponents = data.map(post => {
                         return (
 
-                              <Post key={post.id} id={post.id} displayName={post.post.displayName} content={post.post.content} likes={post.post.likes} uid={post.post.uid} />
+                              <Post key={post.id} id={post.id} displayName={post.post.displayName} content={post.post.content} timestamp={post.post.timestamp} uid={post.post.uid} comments={post.post.comments} />
 
                         )
                     })
@@ -29,6 +46,7 @@ class PostContainer extends React.Component {
                         lastPost: data[data.length-1].id
                     })
         })
+        }
     }
 
     async handleRemovePost(id, uid) {

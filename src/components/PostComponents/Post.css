@@ -1,0 +1,23 @@
+.post{
+    background-color: rgb(42,42,42);
+    padding: 20px;
+    margin-top: 20px;
+    margin-left: 20px;
+    margin-right: 20px;
+    border-radius: 25px;
+}
+
+.userLink:link, .userLink:visited {
+    color: rgb(200,200,200);
+    text-decoration: none;
+    font-size: x-large;
+    padding-left: 10px;
+}
+
+.userLink:hover {
+    color:cadetblue;
+}
+
+.timestamp {
+    font-size: x-small;
+}

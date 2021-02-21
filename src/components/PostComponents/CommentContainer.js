@@ -16,7 +16,7 @@ class CommentContainer extends React.Component {
         getComments(url).then(res => res.json()).then(data => {
             let commentComponents = data.map(comment => {
                         return (
-                            <Comment key={comment.id} id={comment.id} content={comment.comment.content} displayName={comment.comment.displayName} timestamp={comment.comment.timestamp} postId={this.props.id} removed={comment.comment.removed} />
+                            <Comment key={comment.id} id={comment.id} content={comment.comment.content} displayName={comment.comment.displayName} timestamp={comment.comment.timestamp} postId={this.props.id} removed={comment.comment.removed} uid={comment.comment.uid} />
                         )
                     })
                     this.setState({

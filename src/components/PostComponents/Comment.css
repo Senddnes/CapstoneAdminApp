@@ -1,0 +1,19 @@
+.comment{
+    background-color: rgb(74,74,74);
+    margin-left: 80px;
+    margin-right: 80px;
+    margin-top: 10px;
+    padding: 10px;
+    border-radius: 25px;
+}
+
+.userLink:link, .userLink:visited {
+    color: rgb(200,200,200);
+    text-decoration: none;
+    font-size: medium;
+    padding-left: 10px;
+}
+
+.userLink:hover {
+    color:cadetblue;
+}

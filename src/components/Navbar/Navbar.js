@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from "@reach/router";
+import './Navbar.css'
 
 class Navbar extends Component {
     state = {clicked: false}
@@ -9,11 +10,11 @@ class Navbar extends Component {
 
     render() {
         return(
-            <nav className='NavbarItems'>
+            <nav>
                 <ul>
-                    <Link to='/'>Home</Link>
-                    <Link to='/posts'>Posts</Link>
-                    <Link to='/users'>Users</Link>
+                    <Link style={{margin: '10px'}} to='/'>Home</Link>
+                    <Link style={{margin: '10px'}} to='/posts'>Posts</Link>
+                    <Link style={{margin: '10px'}} to='/users'>Users</Link>
                 </ul>
             </nav>
         )

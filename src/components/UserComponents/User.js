@@ -1,5 +1,6 @@
 import React from 'react'
 import {auth} from "../../firebase"
+import { Link } from "@reach/router"
 
 class User extends React.Component {
     constructor(props) {
@@ -13,6 +14,7 @@ class User extends React.Component {
 
 
     render() {
+        let url = `/profile/${this.props.uid}`
 
         return (
                 <div>
@@ -22,8 +24,8 @@ class User extends React.Component {
                             <span style={{paddingRight: '10px'}}>displayName: {this.props.displayName}</span>
                             <span style={{paddingRight: '10px'}}>email: {this.props.email}</span>
                             <span style={{paddingRight: '10px'}}>signUpDate: {this.props.signUpDate}</span>
-                            <span style={{paddingRight: '10px'}}>disabled: {this.state.disabled}</span>
-                            <span style={{paddingRight: '10px'}}><button onClick={(e) => this.handleDisable(e)}>Disable this user</button></span>
+                            <span style={{paddingRight: '10px'}}><Link to={url}>View Profile</Link></span>
+                            <span style={{paddingRight: '10px'}}><button onClick={(e) => this.handleDisable(e)}>Deactivate User</button></span>
                         </li>
                     </ul>
                 </div>
@@ -41,7 +43,7 @@ class User extends React.Component {
             }
         }).then(res => {
             this.setState({
-                disabled: 'true'
+                status: 'deactivated_admin'
             })
         })
     }

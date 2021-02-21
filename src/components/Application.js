@@ -6,6 +6,7 @@ import Posts from "./Posts";
 import PasswordReset from "./PasswordReset";
 import { UserContext } from "../providers/UserProvider";
 import Users from './Users'
+import Profile from './Profile'
 
 function Application() {
     const user = useContext(UserContext);
@@ -15,6 +16,7 @@ function Application() {
           <HomePage path='/'/>
           <Posts path='/posts'/>
           <Users path='/users'/>
+          <Profile path='/profile/:uid'/>
         </Router>
       :
         <Router>
